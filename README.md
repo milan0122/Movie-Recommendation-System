@@ -4,3 +4,5 @@ I cleaned the data set and calculate the cosine_similarity  with each word of on
 After that i used streamlit frameworks to build it's web interface and successful we can search name of movie.
 and when we click on recommendation it recommends 5 best movies which is nearly similar to that movie which you watched.
 
+To check : https://movie-recommendation-system-lxqsrz33bwwkgthyzab43p.streamlit.app
+
