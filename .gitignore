@@ -3,5 +3,9 @@ venv
 .idea/
 .ipynb_checkpoints/
 .DS_Store
-similarity.pkl
 profile
+cosine_similarity.pkl
+similarity_matrix.joblib
+s.py
+Untitled.ipynb
+

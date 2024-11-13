@@ -1,6 +1,7 @@
 import pandas as pd
+import numpy as np
 import streamlit as st
-import pickle
+import pickle,gzip
 
 import requests
 
@@ -10,7 +11,10 @@ def fetch_poster(movie_id):
     return "https://image.tmdb.org/t/p/w500/"+ data['poster_path']
 def recommend(movie):
     movie_index = movies[movies['title'] == movie].index[0]
-    distances = similarity[movie_index]
+    if isinstance(similarity,np.ndarray):
+         distances = similarity[movie_index]
+    else:
+        distances = similarity.toarray()[movie_index]
     movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:6]
 
     recommended_movies = []
@@ -28,13 +32,13 @@ def recommend(movie):
 movies_dict = pickle.load(open('movies_dict.pkl','rb'))
 movies = pd.DataFrame(movies_dict)
 
-similarity = pickle.load(open('similarity.pkl','rb'))
+similarity = pickle.load(gzip.open('movies_similarity.pkl.gz','rb'))
 
 st.title('Movie Recommender System')
 
 #making search bar
 selected_movie_name= st.selectbox(
-    'How would you like to be contacted?',
+    'Choose a Movie name to get related other movies?',
     movies['title'].values)
 
 if st.button("Recommend"):
@@ -55,5 +59,3 @@ if st.button("Recommend"):
     with col5:
         st.text(names[4])
         st.image(posters[4])
-
-
