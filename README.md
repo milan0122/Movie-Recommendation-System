@@ -7,4 +7,5 @@ and when we click on recommendation it recommends 5 best movies which is nearly 
 To check : https://movie-recommendation-system-lxqsrz33bwwkgthyzab43p.streamlit.app
 
 **Screnshots**
-(https://github.com/milan0122/Movie-Recommendation-System/blob/main/Screenshot%202024-11-13%20at%2012.02.09.png)
+|---------------|
+![Sample](https://github.com/milan0122/Movie-Recommendation-System/blob/main/Screenshot%202024-11-13%20at%2012.02.09.png)
